@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css.css">
+
+    <title>salah abu ratiush </title>
+</head>
+
+<body>
+    <header>
+    <div class="text-dark">
+        <p> <strong> To do List </strong>
+        </p>
+    </div><br><br>
+    
+    <form >
+        <input class="btn-outline-info" type="text" id="item" placeholder="Enter Item">
+        <input class="btn-outline-info" onclick="createLi()" type="button" value="Add Item">
+    </form>
+    <ul>
+    </ul>
+    <button class="btn-danger">Clear Data</button>
+</header>
+<footer class="page-footer">
+    <small>Made with <span>❤</span> by <a href=# target="_blank">salah abu ratiush</a>
+    </small>
+    <p id="timer"></p>
+  </footer>
+</body>
+
+<script>
+
+    // משתני מטמון
+    let Savearray = [];  // מערך ריק
+    let form = document.querySelector("form");
+    let ul = document.querySelector("ul");
+    let input = document.querySelector("#item");
+    let clearButton = document.querySelector("button");
+    let data = []; // מערך ריק
+
+    //ליצור פונקציית חץ
+    let createLi = () => {
+        var text = input.value;
+        if (text !== "") {
+            Savearray.push(text);
+            localStorage.setItem("tasks", JSON.stringify(text));  //אחסון מקומי
+            let li = document.createElement("li");
+            li.textContent = text;
+            localStorage.setItem("tasks", JSON.stringify(Savearray));
+            var btn = document.createElement("BUTTON");
+            btn.innerHTML = "X";
+            btn.onclick = function () {
+                var json = JSON.parse(localStorage["tasks"]);
+                for (i = 0; i < json.length; i++)
+                    if (json[i] == text) {
+                        json.splice(i, 1);  //השתמש בפונקציה מובנית
+                        localStorage["tasks"] = JSON.stringify(json);
+                        ul.removeChild(li);
+                        ul.removeChild(btn);
+                    }
+            };
+            ul.appendChild(li);
+            ul.appendChild(btn);
+        }
+    };
+
+    clearButton.addEventListener("click", function () {
+        localStorage.setItem("tasks", JSON.stringify(''));
+        ul.innerHTML = "";
+
+
+    });
+
+</script>
+
+</html>

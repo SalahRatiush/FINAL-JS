@@ -1,0 +1,78 @@
+.btn-outline-info {
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .btn-danger{
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .text-dark
+  {
+    width: 100%;
+  text-align: center;
+  background-color: crimson;
+  }
+  header,
+section {
+  overflow-x: hidden;
+}
+
+:root {
+  --Sniglet-font: "Sniglet", cursive;
+  --Rubik: "Rubik", cursive;
+  --Patua: "Patua One", cursive;
+  --Lobster: "lobster", cursive;
+  --light-black: #2e2c2caf;
+  --bggradient: linear-gradient(to bottom, #99627b, #2f90ff);
+  --light-gray: rgba(255, 255, 255, 0.877);
+}
+
+  header {
+    background: #2f9aff;
+    /* fallback for old browsers */
+    background: var(--bggradient);
+  }
+  footer {
+    background: rgba(79, 132, 167, 0.815);
+    overflow-x: hidden;
+    padding: 14vmin 18vmin;
+  }
+  
+  footer p > span {
+    color: #2fc4ff;
+  }
+  
+  footer input {
+    border: none !important;
+  }
+  
+  footer input::placeholder {
+    color: white !important;
+  }
+  
+  footer .input-group .input-group-text {
+    background: var(--bggradient);
+    border: none;
+  }
+  
+  footer .column i {
+    color: #dd3024;
+  }
+  
+  /* It is Adjacent sibling combinator */
+  
+  footer .column i + i {
+    padding: 0 0.5em;
+  }
+  .page-footer span {
+    color: var(--red);
+  }
+
+  
+ 
+  
+  
